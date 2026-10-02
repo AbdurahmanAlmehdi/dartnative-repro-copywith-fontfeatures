@@ -1,5 +1,7 @@
 # Repro: `TextStyle.copyWith` drops `fontFeatures` (and has no `fontFeatures` parameter)
 
+Issue: https://github.com/DartNative/dartnative/issues/61
+
 In DartNative 1.0.0, `TextStyle.copyWith` has no `fontFeatures` (or `fontVariations`) parameter, and the style it returns has `fontFeatures == null` even when the base style had them. `merge` keeps them. An app that defines one tabular-figures number style and derives weights or colours from it with `copyWith` loses `tnum`, so amounts in a right-aligned column stop lining up.
 
 ## Run
